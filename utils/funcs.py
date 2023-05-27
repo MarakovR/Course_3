@@ -4,7 +4,7 @@ import os.path
 
 def open_file():
     """ Возвращает содержимое файла json """
-    file = open(os.path.abspath("files/operations.json"), "r", encoding="utf-8")
+    file = open("/home/roman/PycharmProjects/Course_3/files/operations.json")
     json_file = json.load(file)
     operations_file = [i for i in json_file if i]
     return operations_file
