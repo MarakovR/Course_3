@@ -13,13 +13,13 @@ def open_file():
 def sorted_operacions(value):
     """ Находим последние выполненные операции по ключам 'date' и 'state' """
     operacions = sorted(open_file(), key=lambda x: x["date"], reverse=True)[:value]
-    operacions_EXECUTED = []
+    operacions_exe = []
     for operacion in operacions:
         if operacion["state"] == "EXECUTED":
-            operacions_EXECUTED.append(operacion)
+            operacions_exe.append(operacion)
         else:
             continue
-    return operacions_EXECUTED
+    return operacions_exe
 
 
 def format_date(date):

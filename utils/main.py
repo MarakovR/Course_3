@@ -1,6 +1,6 @@
 from utils.funcs import sorted_operacions, format_date, format_card, format_score
 
-operacions = sorted_operacions(5)
+operacions = sorted_operacions(int(input("Укажите кол-во последних операций\n")))
 
 for operacion in operacions:
     """ Перебираем операции, выводим информацию в зависимости от условии"""
@@ -15,6 +15,9 @@ for operacion in operacions:
             print(f'{operacion["operationAmount"]["amount"]} {currency}\n')
         elif operacion["description"] == "Перевод со счета на счет":
             print(f'{format_score(operacion["from"])} -> {format_score(operacion["to"])}')
+            print(f'{operacion["operationAmount"]["amount"]} {currency}\n')
+        elif operacion["description"] == "Перевод с карты на счет":
+            print(f'{format_card(operacion["from"])} -> {format_score(operacion["to"])}')
             print(f'{operacion["operationAmount"]["amount"]} {currency}\n')
     else:
         print(f'{format_score(operacion["to"])}')
